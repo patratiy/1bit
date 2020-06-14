@@ -1,8 +1,11 @@
-$color : #000;
-$color-white : #fff;
+$color : #000000;
+$color-white : #ffffff;
 $color-back : #f5f5fa;
 $montser : 'Montserrat', sans-serif;
 $color-main : #ec0287;
+$color-footer : #29358c;
+
+
 $header-fs : 11px;
 $bc-fs : 13px;
 $h-fs : 46px;
@@ -217,6 +220,7 @@ body {
             font-family: $montser;
             font-size: $h-fs;
             color: $color-white;
+            font-weight: $b;
 
             margin-top: 60px;
             margin-bottom: 40px;
@@ -249,7 +253,7 @@ body {
                 position: relative;
 
                 font-family: $montser;
-                font-size: 15px;
+                font-size: 14px;
                 color: $color-white;
 
                 &::before {
@@ -334,7 +338,7 @@ body {
                 background: none;
                 border: none;
 
-                margin-top: 55px;
+                margin-top: -15px;
                 position: absolute;
                 top: 10px;
 
@@ -380,7 +384,7 @@ body {
     }
 }
 
-.learing-seminars { 
+.learing-seminars {
     background: url('/assets/people.png');
     @include stand-back();
     background-size: cover;
@@ -584,33 +588,181 @@ body {
     @include stand-back();
     background-size: cover;
 
+    padding-top: 40px;
+    padding-bottom: 40px;
+
     .container {
         &.container_width_959 {
             @include width-959();
         }
 
         .form-block__header {
+            font-size: 36px;
+            font-family: $montser;
+            color: $color-white;
+            font-weight: $b;
 
+            margin-bottom: 25px;
         }
     
         .form-block__content {
+            display: flex;
+            display: -webkit-flex;
+
             .form-block__input-control {
-    
+                font-size: 14px;
+                color: $color-white;
+                font-family: $montser;
+
+                width: 370px;
+                height: 36px;
+                margin-right: 25px;
+
+                background: none;
+
+                border: none;
+                border-bottom: 1px solid $color-white;
+                @include transition();
+
+                &:focus {
+                    border-bottom: 1px solid $color-main;
+                }
             }
     
             .form-block__button-container {
                 .form-block__button {
-                
+                    background: $color-main;
+                    cursor: pointer;
+                    user-select: none;
+
+                    color: $color-white;
+                    border: 2px solid $color-main;
+                    font-size: 14px;
+                    font-family: $montser;
+                    
+                    padding: 8px 70px;
+
+                    @include transition();
+
+                    &:hover {
+                        background: none;
+                    }
                 }
     
                 .form-block__offerta {
-       
+                    font-size: 10px;
+                    color: $color-white;
+                    font-family: $montser;
+
+                    margin-top: 6px;
                 }
     
                 .form-block__offerta-link {
-    
+                    text-decoration: none;
+                    color: $color-main;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
                 }
             }       
         }
+    }
+}
+
+.footer {
+    background: $color-footer;
+    
+    position: relative;
+
+    padding: 40px 0;
+
+    .container {
+        &.container_width_959 {
+            @include width-959();
+        }
+
+        .footer-line {
+            display: flex;
+            display: -webkit-flex;
+
+            justify-content: space-between;
+
+            .footer-line__text-about {
+                color: $color-white;
+                font-size: 12px;
+                font-weight: $b;
+                font-family: $montser;
+            }
+
+            .footer-line__socials {
+                display: flex;
+                display: -webkit-flex;
+
+                .footer-line__soc-element {
+                    width: 15px;
+                    height: 15px;
+                    
+                    display: inline-block;
+                    margin: 0 12px 0 12px;
+
+                    @include stand-back();
+
+                    &:nth-child(1) {
+                        background-image: url('/assets/insta.png');
+                    }
+                    &:nth-child(2) {
+                        background-image: url('/assets/ok.png');
+                    }
+                    &:nth-child(3) {
+                        background-image: url('/assets/youtube.png');
+                    }
+                    &:nth-child(4) {
+                        background-image: url('/assets/vk.png');
+                    }
+                    &:nth-child(5) {
+                        background-image: url('/assets/face-book.png');
+                    }
+                }
+            }
+
+            .footer-line__politic {
+                color: $color-white;
+                font-size: 12px;
+                font-weight: $b;
+                font-family: $montser;
+
+                position: relative;
+
+                &:before {
+                    @include pseudo-set();
+
+                    width: 25px;
+                    height: 2px;
+
+                    left: -30px;
+                    top: 7px;
+
+                    background-color: $color-main;
+                }
+            }
+        }
+    }
+
+    .footer__button-top {
+        border: 2px solid $color-main;
+        cursor: pointer;
+
+        width: 42px;
+        height: 42px;
+
+        position: absolute;
+        right: 50px;
+        top: calc(50% - 21px);
+
+        background: url('/assets/arrow-white.png');
+        background-size: 30%;
+        background-position: center;
+        background-repeat: no-repeat;
     }
 }

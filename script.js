@@ -7,4 +7,29 @@ $.when($.ready).then(function() {
         autoplaySpeed: 5000,
         pauseOnHover: true,
     });
+
+    $('body').on('click', '[data-sendfb]', (e) => {
+        e.preventDefault();
+        $.ajax({
+            url: '//' + location.hostname + '/ajax.php',
+            data: { 'name' : $('[name="name-persona"]').val(), 'email' : $('[name="email-persona"]').val() },
+            dataType: 'json',
+            type: 'POST',
+            success: function(data) {
+                if (data.st == 'ok') {
+
+                }
+                if (data.st == 'error') {
+
+                }
+            }
+        });
+    });
+
+    $('body').on('click', '[data-scroll-top]', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
 });
